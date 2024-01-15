@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Loan Calulator</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  </head>
+  <body>
+   <div class="row">
+    <div class="col-12 col-sm-6 col-md-4 mx-auto mt-md-5">
+      <div class="custom-card" id="home-card">
+        <div class="card">
+         <div class="card-body">
+             <nav class="navbar bg-body-tertiary">
+                 <div class="container-fluid d-flex justify-content-center">
+                     <span class="text-primary text-center lang1">គណនាប្រាក់កម្ចី</span>
+                 </div>
+             </nav>
+             <div class="d-flex justify-content-center lang">
+              <img src="cambodia.png" alt="" onclick="switchLang('kh')">
+              <img src="united-kingdom.png" alt="" onclick="switchLang('en')">
+             </div>
+             <div class="mb-3 row mt-4">
+              <label for="total_amount" class="col-sm-4 col-form-label lang2">ទឹកប្រាក់សរុប</label>
+              <div class="col-sm-8">
+                <input type="number" class="form-control" id="loanAmount" name="loanAmount" required>
+              </div>
+            </div>
+            <div class="mb-3 row mt-4">
+              <label for="initial_diposit" class="col-sm-4 col-form-label lang3">ប្រាក់កក់ដំបូង</label>
+              <div class="col-sm-8">
+                <input type="number" class="form-control" id="initial_diposit" name="initial_diposit">
+              </div>
+            </div>
+            <div class="mb-3 row mt-4">
+              <label for="installment_payment" class="col-sm-4 col-form-label lang4">ទឹកប្រាក់បង់រំលស់</label>
+              <div class="col-sm-8">
+                <input type="number" class="form-control" id="installment_payment" name="installment_payment">
+              </div>
+            </div>
+            <div class="mb-3 row mt-4">
+              <label for="depreciation_period" class="col-sm-4 col-form-label lang5">រយះពេលរំលស់(ខែ)</label>
+              <div class="col-sm-8">
+                <input type="number" class="form-control" id="loanTerm" name="loanTerm" required>
+              </div>
+            </div>
+            <div class="mb-3 row mt-4">
+              <label for="interest_per_month" class="col-sm-4 col-form-label lang6">ការប្រាក់ក្នុង ០១ខែ(%)</label>
+              <div class="col-sm-8">
+                <input type="number" class="form-control" id="interestRate" name="interestRate" required>
+              </div>
+            </div>
+            <div class="d-grid gap-2">
+              <button class="btn btn-primary" id="btn-calulate-rate" onclick="calulateMonthlyPayment(event)" type="button lang7">គណនាប្រាក់បង់ប្រចាំខែ</button>
+              <input type="text" readonly class="form-control text-center text-primary" id="monthlyPayment" placeholder="">
+              <button class="btn btn-primary lang8" type="button" onclick="showLoanDetails()">បង្ហាញតារាងលម្អិត</button>
+              <button class="btn btn-primary lang9" type="button">ដាក់ផ្ដល់ដំណឹង</button>
+            </div>
+         </div>
+        </div>
+     </div>
+
+     <div class="custom-card mx-auto d-none" id="table">
+      <div class="card">
+       <div class="card-body">
+           <nav class="navbar bg-body-tertiary">
+               <div class="container-fluid d-flex justify-content-between">
+                <button type="button" class="btn btn-light lang10" onclick="handleBack()">ត្រឡប់ក្រោយ</button>
+                <span class="text-primary text-center lang11">តារាងលម្អិត</span>
+               </div>
+           </nav>
+          <div class="alert alert-primary mt-2 mt-md-4" role="alert">
+            <p><span class="lang12">ទឹកប្រាក់រំលស់</span>: <span id="textLoanAmount"></span></p>
+            <p><span class="lang13">ការប្រាក់សរុប</span>: <span id="textRateAmount"></span></p>
+            <p><span class="lang14">ប្រាក់បង់សរុប</span>: <span id="textTotalPayAmount"></span></p>
+            <p><span class="lang15">ចំនួនខែបង់រំលស់</span>: <span id="textLoanTerm"></span></p>
+          </div>
+           <table class="table">
+               <thead>
+                 <tr>
+                   <th class="lang16" scope="col">ល.រ</th>
+                   <th class="lang17" scope="col">ទឺកប្រាក់បង់</th>
+                   <th class="lang18" scope="col">ប្រាក់ដើម</th>
+                   <th class="lang19" scope="col">ការប្រាក់</th>
+                   <th class="lang20" scope="col">សមតុល្យ</th>
+                 </tr>
+               </thead>
+               <tbody id="paymentDetails">
+                <!-- Details will be displayed here -->
+                </tbody>
+             </table>
+       </div>
+      </div>
+   </div>
+    </div>
+   </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+ @import url('https://fonts.googleapis.com/css2?family=Hanuman&display=swap');
+
+ * {
+     font-family: Hanuman;
+ }
+
+ body {
+     background-color: #e4e4e4 !important;
+ }
+
+ .lang img {
+     width: 40px;
+     margin: 10px;
+     cursor: pointer;
+ }
